@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 
 
@@ -11,7 +11,7 @@ code_list += ['300705.SZ', '300707.SZ']
 code_list = map(lambda  x : x[:-3] + ('.XSHE' if x.endswith('SZ') else '.XSHG'), code_list)
 print (code_list)
 
-today = datetime.strftime(date.today(), '%Y%m%d')
+today = datetime.strftime(date.today() - timedelta(1), '%Y%m%d')
 
 q = query(
     valuation.code, valuation.day, valuation.pe_ratio, valuation.pb_ratio, valuation.ps_ratio, valuation.pcf_ratio
