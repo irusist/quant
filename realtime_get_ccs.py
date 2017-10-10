@@ -12,9 +12,11 @@ headers = {
 import pandas as pd
 import pymysql
 import os
+from datetime import date
 
 
-base_path = '/Users/zhulx/data/xueqiu/ccs/20171009/'
+today = date.today().strftime('%Y%m%d')
+base_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "xueqiu", "ccs", today)
 if not os.path.exists(base_path):
     os.mkdir(base_path)
 
@@ -47,7 +49,7 @@ for code in code_list:
         # print(result.headers)
         content = result.content.decode(encoding="UTF-8")
         print content
-        with open(base_path + str(j) + '.json', 'wb') as f:
+        with open(os.path.join(base_path, str(j) + '.json'), 'wb') as f:
             f.write(content.encode('utf-8'))
 
 param_str = ','.join(param)
@@ -56,6 +58,6 @@ result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str
 # print(result.headers)
 content = result.content.decode(encoding="UTF-8")
 print content
-with open(base_path + str(j) + '.json', 'wb') as f:
+with open(os.path.join(base_path, str(j) + '.json'), 'wb') as f:
     f.write(content.encode('utf-8'))
 

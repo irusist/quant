@@ -539,3 +539,18 @@ CREATE TABLE if not exists `joinquant_stock_hs` (
   KEY `idx_joinquant_stock_hs_biz_date` (`biz_date`),
   KEY `idx_joinquant_stock_hs_code` (`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='聚宽沪深股票表';
+
+# 优矿记录表
+drop table uqer_stock_hs;
+CREATE TABLE if not exists `uqer_stock_hs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `biz_date` varchar(15)  NOT NULL COMMENT '日期',
+  `code` varchar(64)  NOT NULL COMMENT '代码',
+  `pe`  DOUBLE COMMENT '市盈率',
+  `pb`  DOUBLE COMMENT '市净率',
+  `ps`  DOUBLE   COMMENT '市销率',
+  `pcf`  DOUBLE  COMMENT '市现率',
+  PRIMARY KEY (`id`),
+  KEY `idx_uqer_stock_hs_biz_date` (`biz_date`),
+  KEY `idx_uqer_stock_hs_code` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='优矿沪深股票表';
