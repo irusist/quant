@@ -1,3 +1,9 @@
+create user quant identified by '123456';
+
+grant all on *.* to quant@'%';
+
+create database quant;
+
 # drop table stock_hs;
 # CREATE TABLE if not exists `stock_hs` (
 #   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -518,3 +524,18 @@ CREATE TABLE if not exists `index_constituent_history` (
   KEY `idx_index_constituent_history_index` (`index_code`),
   KEY `idx_index_constituent_history_stock` (`stock_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='指数成分股进出记录';
+
+# 聚宽记录表
+drop table joinquant_stock_hs;
+CREATE TABLE if not exists `joinquant_stock_hs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `biz_date` varchar(15)  NOT NULL COMMENT '日期',
+  `code` varchar(64)  NOT NULL COMMENT '代码',
+  `pe`  DOUBLE COMMENT '市盈率',
+  `pb`  DOUBLE COMMENT '市净率',
+  `ps`  DOUBLE   COMMENT '市销率',
+  `pcf`  DOUBLE  COMMENT '市现率',
+  PRIMARY KEY (`id`),
+  KEY `idx_joinquant_stock_hs_biz_date` (`biz_date`),
+  KEY `idx_joinquant_stock_hs_code` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='聚宽沪深股票表';
