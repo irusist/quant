@@ -21,12 +21,12 @@ sql = '''  select id, biz_date, code, pe_ttm, trade_status from stock_hs where c
 #  and hs.trade_status in ('正常交易')
 pe_list = pd.read_sql(sql, mysql_cn, index_col="id")
 
-print pe_list
+print(pe_list)
 
 pe = len(pe_list)/sum([1/p if p > 0 else 0 for p in pe_list.pe_ttm])
 
 
-print pe
+print(pe)
 
 
 #pd.io.sql.to_sql(df,'test',db,flavor='mysql',if_exists='replace',index=False,chunksize=10000)

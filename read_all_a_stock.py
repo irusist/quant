@@ -9,8 +9,8 @@ code_list = list(df['code'])
 # code_list = map(lambda  x : x[:-3], code_list)
 # joinquant
 code_list = map(lambda  x : x[:-3] + ('.XSHE' if x.endswith('SZ') else '.XSHG'), code_list)
-print code_list
-print len(code_list)
+print(code_list)
+print(len(code_list))
 # df.to_csv("/Users/zhulx/tmp/all_stock.csv", encoding="utf-8")
 # uqer.io
 df.to_csv("/Users/zhulx/tmp/all_stock.csv", encoding="utf-8")

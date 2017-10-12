@@ -109,7 +109,7 @@ for file_name in os.listdir(base_path):
         # 提交
         conn.commit()
     else:
-        print "not exists file: %s" % constituent_file
+        print("not exists file: %s" % constituent_file)
 
     # sql = "select id, biz_date, code, name from stock_hs where biz_date = '2017-09-29'"
     # df = pd.read_sql(sql, mysql_cn, index_col="id")
