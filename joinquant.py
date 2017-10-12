@@ -7,6 +7,8 @@ df = pd.read_csv("all_stock.csv", encoding="utf-8")
 code_list = list(df['code'])
 # 20171010
 code_list += ['300705.SZ', '300707.SZ']
+# 2017-10-12
+code_list += ['603103.SH']
 
 code_list = map(lambda  x : x[:-3] + ('.XSHE' if x.endswith('SZ') else '.XSHG'), code_list)
 print (code_list)
