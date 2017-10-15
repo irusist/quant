@@ -21,7 +21,7 @@ for index_code in index_code_list:
         df = pd.read_excel('http://www.csindex.com.cn/uploads/file/autofile/cons/' + index_code + 'cons.xls', converters={4: str})
     except urllib2.HTTPError as error:
         # maybe 404 error
-        print('index %s occurs exception: %s', (index_code, error.message))
+        print('index %s occurs exception: %s' % (index_code, str(error)))
         continue
 
     stock_code_list_new = set(df.iloc[:, 4])

@@ -69,6 +69,8 @@ param = []
 code_list = ['300705.SZ', '300707.SZ']
 # 2017-10-12
 code_list += ['603103.SH']
+# 2017-10-13
+code_list += ['002903.SZ', '603110.SH', '002906.SZ']
 for code in code_list:
     if code.endswith('SH'):
         param.append('SH' + code[:-3])

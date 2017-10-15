@@ -7,6 +7,8 @@ code_list = list(df['code'])
 code_list += ['300705.SZ', '300707.SZ']
 # 2017-10-12
 code_list += ['603103.SH']
+# 2017-10-13
+code_list += ['002903.SZ', '603110.SH', '002906.SZ']
 
 # print len(code_list)
 # code_list = filter(lambda x  : not x.startswith('90') and not  x.startswith('20'), code_list)
