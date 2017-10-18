@@ -590,9 +590,17 @@ CREATE TABLE if not exists `xueqiu_hs` (
   'exchange' VARCHAR(32) COMMENT 'exchange',
   'fall_stop' DOUBLE COMMENT 'fall_stop',
   'flag' int COMMENT 'flag',
-  'float_market_capital', 'float_shares', 'has_warrant', 'hasexist',
-  'high', 'high52week', 'instOwn', 'interestrtmemo', 'issue_type',
-  'kzz_convert_price', 'kzz_convert_time', 'kzz_covert_value', 'kzz_cpr',
+  'float_market_capital' DOUBLE COMMENT 'float_market_capital',
+  'float_shares' BIGINT(20) COMMENT 'float_shares',
+  'has_warrant' int COMMENT 'has_warrant',
+  'hasexist' VARCHAR(64) COMMENT 'hasexist',
+  'high' DOUBLE COMMENT 'high',
+  'high52week' DOUBLE COMMENT 'high52week',
+  'instOwn' DOUBLE COMMENT 'instOwn',
+  'interestrtmemo' VARCHAR(64) COMMENT 'interestrtmemo',
+  'issue_type' VARCHAR(32) COMMENT 'issue_type',
+  'kzz_convert_price' DOUBLE COMMENT 'kzz_convert_price',
+  'kzz_convert_time', 'kzz_covert_value', 'kzz_cpr',
   'kzz_putback_price', 'kzz_redempt_price', 'kzz_stock_current',
   'kzz_stock_name', 'kzz_stock_percent', 'kzz_stock_symbol',
   'kzz_straight_price', 'last_close', 'lot_size', 'lot_volume', 'low',
@@ -611,16 +619,6 @@ CREATE TABLE if not exists `xueqiu_hs` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='雪球沪深股票表';
 
 
-float64
-int64
-int64
-object
-float64
-float64
-int64
-object
-object
-int64
 datetime64[ns]
 int64
 int64
