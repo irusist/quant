@@ -75,6 +75,8 @@ code_list += ['002903.SZ', '603110.SH', '002906.SZ']
 code_list += ['603499.SH', '002905.SZ', '300708.SZ']
 # 2017-10-17
 code_list += ['603829.SH']
+# 2017-10-18
+code_list += ['603396.SH']
 
 for code in code_list:
     if code.endswith('SH'):
