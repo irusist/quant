@@ -561,118 +561,104 @@ drop table xueqiu_hs;
 CREATE TABLE if not exists `xueqiu_hs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
   `biz_date` varchar(15)  NOT NULL COMMENT '日期',
-  `code` varchar(64)  NOT NULL COMMENT '代码',
-  'afterHours' DOUBLE COMMENT 'afterHours',
-  'afterHoursChg' DOUBLE COMMENT 'afterHoursChg',
-  'afterHoursPct' DOUBLE COMMENT 'afterHoursPct',
-  'afterHoursTime' VARCHAR(64) COMMENT 'afterHoursTime',
-  'after_hour_vol' DOUBLE COMMENT 'after_hour_vol',
-  'amount' DOUBLE COMMENT 'amount',
-  'amplitude' VARCHAR(32) COMMENT 'amplitude',
-  'benefit_after_tax' DOUBLE COMMENT 'benefit_after_tax',
-  'benefit_before_tax' DOUBLE COMMENT 'benefit_before_tax',
-  'beta' DOUBLE COMMENT 'beta',
-  'bond_type' VARCHAR(64) COMMENT 'bond_type',
-  'change' DOUBLE COMMENT 'change',
-  'circulation' DOUBLE COMMENT 'circulation',
-  'close' DOUBLE COMMENT 'close',
-  'code' VARCHAR(64) COMMENT 'code',
-  'convert_bond_ratio' VARCHAR(64) COMMENT 'convert_bond_ratio',
-  'convert_rate' DOUBLE COMMENT 'convert_rate',
-  'convertrate' DOUBLE COMMENT 'convertrate',
-  'currency_unit' VARCHAR(64) COMMENT 'currency_unit',
-  'current' DOUBLE COMMENT 'current',
-  'disnext_pay_date' VARCHAR(64) COMMENT 'disnext_pay_date',
-  'dividend' DOUBLE COMMENT 'dividend',
-  'due_date' VARCHAR(64) COMMENT 'due_date',
-  'due_time' DATETIME COMMENT 'due_time',
-  'eps' DOUBLE COMMENT 'eps',
-  'exchange' VARCHAR(32) COMMENT 'exchange',
-  'fall_stop' DOUBLE COMMENT 'fall_stop',
-  'flag' int COMMENT 'flag',
-  'float_market_capital' DOUBLE COMMENT 'float_market_capital',
-  'float_shares' BIGINT(20) COMMENT 'float_shares',
-  'has_warrant' int COMMENT 'has_warrant',
-  'hasexist' VARCHAR(64) COMMENT 'hasexist',
-  'high' DOUBLE COMMENT 'high',
-  'high52week' DOUBLE COMMENT 'high52week',
-  'instOwn' DOUBLE COMMENT 'instOwn',
-  'interestrtmemo' VARCHAR(64) COMMENT 'interestrtmemo',
-  'issue_type' VARCHAR(32) COMMENT 'issue_type',
-  'kzz_convert_price' DOUBLE COMMENT 'kzz_convert_price',
-  'kzz_convert_time', 'kzz_covert_value', 'kzz_cpr',
-  'kzz_putback_price', 'kzz_redempt_price', 'kzz_stock_current',
-  'kzz_stock_name', 'kzz_stock_percent', 'kzz_stock_symbol',
-  'kzz_straight_price', 'last_close', 'lot_size', 'lot_volume', 'low',
-  'low52week', 'marketCapital', 'market_status', 'maturitydate',
-  'max_order_quantity', 'min_order_quantity', 'name', 'net_assets',
-  'open', 'outstandingamt', 'pankou_ratio', 'par_value', 'pb', 'pe_lyr',
-  'pe_ttm', 'percent5m', 'percentage', 'psr', 'publisher', 'rate',
-  'redeem_type', 'release_date', 'remain_year', 'rest_day', 'rise_stop',
-  'sale_rrg', 'symbol', 'tick_size', 'time', 'totalShares',
-  'totalissuescale', 'turnover_rate', 'type', 'updateAt', 'value_date',
-  'variable_tick_size', 'volume', 'volumeAverage', 'volume_ratio',
-  'warrant', 'yield'
+  `afterHours` DOUBLE COMMENT 'afterHours',
+  `afterHoursChg` DOUBLE COMMENT 'afterHoursChg',
+  `afterHoursPct` DOUBLE COMMENT 'afterHoursPct',
+#   `afterHoursTime` VARCHAR(64) COMMENT 'afterHoursTime',
+  `after_hour_vol` DOUBLE COMMENT 'after_hour_vol',
+  `amount` DOUBLE COMMENT 'amount',
+  `amplitude` VARCHAR(32) COMMENT 'amplitude',
+  `benefit_after_tax` DOUBLE COMMENT 'benefit_after_tax',
+  `benefit_before_tax` DOUBLE COMMENT 'benefit_before_tax',
+  `beta` DOUBLE COMMENT 'beta',
+  `bond_type` VARCHAR(64) COMMENT 'bond_type',
+  `change` DOUBLE COMMENT 'change',
+  `circulation` DOUBLE COMMENT 'circulation',
+  `close` DOUBLE COMMENT 'close',
+  `code` VARCHAR(64) NOT NULL COMMENT '股票代码',
+  `convert_bond_ratio` VARCHAR(64) COMMENT 'convert_bond_ratio',
+  `convert_rate` DOUBLE COMMENT 'convert_rate',
+  `convertrate` DOUBLE COMMENT 'convertrate',
+  `currency_unit` VARCHAR(64) COMMENT 'currency_unit',
+  `current` DOUBLE COMMENT 'current',
+  `disnext_pay_date` VARCHAR(64) COMMENT 'disnext_pay_date',
+  `dividend` DOUBLE COMMENT 'dividend',
+  `due_date` VARCHAR(64) COMMENT 'due_date',
+  `due_time` DATETIME COMMENT 'due_time',
+  `eps` DOUBLE COMMENT 'eps',
+  `exchange` VARCHAR(32) COMMENT 'exchange',
+  `fall_stop` DOUBLE COMMENT 'fall_stop',
+  `flag` int COMMENT 'flag',
+  `float_market_capital` DOUBLE COMMENT 'float_market_capital',
+  `float_shares` BIGINT(20) COMMENT 'float_shares',
+  `has_warrant` int COMMENT 'has_warrant',
+  `hasexist` VARCHAR(64) COMMENT 'hasexist',
+  `high` DOUBLE COMMENT 'high',
+  `high52week` DOUBLE COMMENT 'high52week',
+  `instOwn` DOUBLE COMMENT 'instOwn',
+  `interestrtmemo` VARCHAR(64) COMMENT 'interestrtmemo',
+  `issue_type` VARCHAR(32) COMMENT 'issue_type',
+  `kzz_convert_price` DOUBLE COMMENT 'kzz_convert_price',
+  `kzz_convert_time` DATETIME COMMENT 'kzz_convert_time',
+  `kzz_covert_value` DOUBLE COMMENT 'kzz_covert_value',
+  `kzz_cpr` DOUBLE COMMENT 'kzz_cpr',
+  `kzz_putback_price` DOUBLE COMMENT 'kzz_putback_price',
+  `kzz_redempt_price` DOUBLE COMMENT 'kzz_redempt_price',
+  `kzz_stock_current` DOUBLE COMMENT 'kzz_stock_current',
+  `kzz_stock_name` VARCHAR(64) COMMENT 'kzz_stock_name',
+  `kzz_stock_percent` VARCHAR(64) COMMENT 'kzz_stock_percent',
+  `kzz_stock_symbol` VARCHAR(64) COMMENT 'kzz_stock_symbol',
+  `kzz_straight_price` DOUBLE COMMENT 'kzz_straight_price',
+  `last_close` DOUBLE COMMENT 'last_close',
+  `lot_size` int COMMENT 'lot_size',
+  `lot_volume` DOUBLE COMMENT 'lot_volume',
+  `low` DOUBLE COMMENT 'low',
+  `low52week` DOUBLE COMMENT 'low52week',
+  `marketCapital` DOUBLE COMMENT 'marketCapital',
+  `market_status` VARCHAR(32) COMMENT 'market_status',
+  `maturitydate` VARCHAR(32) COMMENT 'maturitydate',
+  `max_order_quantity` int COMMENT 'max_order_quantity',
+  `min_order_quantity` int COMMENT 'min_order_quantity',
+  `name` VARCHAR(128) COMMENT '股票名称',
+  `net_assets` DOUBLE COMMENT 'net_assets',
+  `open` DOUBLE COMMENT 'open',
+  `outstandingamt` VARCHAR(64) COMMENT 'outstandingamt',
+  `pankou_ratio` VARCHAR(64) COMMENT 'pankou_ratio',
+  `par_value` DOUBLE COMMENT 'par_value',
+  `pb` DOUBLE COMMENT '市净率',
+  `pe_lyr` DOUBLE COMMENT '市盈率 lyr',
+  `pe_ttm` DOUBLE COMMENT '市盈率 ttm',
+  `percent5m` DOUBLE COMMENT 'percent5m',
+  `percentage` DOUBLE COMMENT 'percentage',
+  `psr` DOUBLE COMMENT 'psr',
+  `publisher` VARCHAR(64) COMMENT 'publisher',
+  `rate` VARCHAR(64) COMMENT 'rate',
+  `redeem_type` VARCHAR(32) COMMENT 'redeem_type',
+  `release_date` VARCHAR(64) COMMENT 'release_date',
+  `remain_year` VARCHAR(64) COMMENT 'remain_year',
+  `rest_day` VARCHAR(64) COMMENT 'rest_day',
+  `rise_stop` DOUBLE COMMENT 'rise_stop',
+  `sale_rrg` VARCHAR(64) COMMENT 'sale_rrg',
+  `symbol` VARCHAR(64) COMMENT '股票code',
+  `tick_size` DOUBLE COMMENT 'tick_size',
+  `time` VARCHAR(64) COMMENT 'time',
+  `totalShares` BIGINT(20) COMMENT 'totalShares',
+  `totalissuescale` VARCHAR(64) COMMENT 'totalissuescale',
+  `turnover_rate` VARCHAR(64) COMMENT 'turnover_rate',
+  `type` int COMMENT 'type',
+  `updateAt` BIGINT COMMENT 'updateAt',
+  `value_date` VARCHAR(64) COMMENT 'value_date',
+  `variable_tick_size` VARCHAR(64) COMMENT 'variable_tick_size',
+  `volume` BIGINT(20) COMMENT 'volume',
+  `volumeAverage` BIGINT(20) COMMENT 'volumeAverage',
+  `volume_ratio` DOUBLE COMMENT 'volume_ratio',
+  `warrant` VARCHAR(64) COMMENT 'warrant',
+  `yield` DOUBLE COMMENT 'yield',
   PRIMARY KEY (`id`),
   KEY `idx_xueqiu_hs_biz_date` (`biz_date`),
   KEY `idx_xueqiu_hs_code` (`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='雪球沪深股票表';
 
 
-datetime64[ns]
-int64
-int64
-int64
-int64
-int64
-object
-object
-object
-int64
-float64
-int64
-float64
-float64
-float64
-float64
-object
-object
-int64
-int64
-object
-float64
-float64
-object
-object
-int64
-float64
-object
-object
-object
-float64
-float64
-object
-object
-object
-object
-object
-object
-float64
-object
-object
-float64
-object
-int64
-object
-object
-int64
-int64
-object
-object
-int64
-int64
-float64
-object
-float64
 
 
