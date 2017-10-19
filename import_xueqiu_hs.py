@@ -17,7 +17,17 @@ is_windows = platform.system() == 'Windows'
 
 command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
 
-command_suffix = '''\' into table uqer_stock_hs(`code`, `biz_date`, `pe`, `pb`, `ps`, `pcf`)" '''
+command_suffix = '''\' into table xueqiu_hs(`afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,
+  `benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,
+  `convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,
+  `fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,
+  `issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,
+  `kzz_stock_current`,`kzz_stock_name`,`kzz_stock_percent`,`kzz_stock_symbol`,`kzz_straight_price`,`last_close`,`lot_size`,
+  `lot_volume`,`low`,`low52week`,`marketCapital`,`market_status`,`maturitydate`,`max_order_quantity`,`min_order_quantity`,
+  `name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,
+  `psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,
+  `time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,
+  `volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)" '''
 
 
 class OffsetTime(StaticTzInfo):
@@ -47,11 +57,18 @@ for file_name in os.listdir(data_path):
     print(df.iloc[0].time)
 
     df['biz_date'] = df['time'].apply(lambda x : dump_datetime(load_datetime(x), '%Y-%m-%d'))
-    print(df['biz_date'])
+    # print(df['biz_date'])
+    print(df)
+    print(dump_datetime(load_datetime('Tue Oct 10 10:07:04 -0400 2017'), '%Y-%m-%d'))
 
+    print(datetime.strptime('Tue Oct 10 10:07:04 -0400 2017', '%a %b %d %X %z %Y'))
+
+    csv_file = os.path.join(base_path, "tmp", "tmp.csv")
+    df.to_csv(csv_file, sep='\t', header=False, index=False, encoding='utf-8')
     if is_windows:
-        file = file.replace('\\', '\\\\')
-    command = command_pre + file + command_suffix
-    # os.system(command)
+        csv_file = csv_file.replace('\\', '\\\\')
+    command = command_pre + csv_file + command_suffix
+    print(command)
+    os.system(command)
 
 
