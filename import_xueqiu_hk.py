@@ -10,22 +10,24 @@ from datetime import datetime, timedelta
 
 
 base_path = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(base_path, "data", "xueqiu", "hs", "20171018")
+data_path = os.path.join(base_path, "data", "xueqiu", "hk", "20171019")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'
 
 command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e 'load data local infile "'''
 
-command_suffix = '''" into table xueqiu_hs(
+command_suffix = '''" into table xueqiu_hk(
     `afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,
-    `benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,
+    `benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`chg_from_200_day_moving_avg`,
+    `chg_from_50_day_moving_avg`,`circulation`,`close`,`code`,`convert_bond_ratio`,
     `convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,
     `fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,
     `issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,
     `kzz_stock_current`,`kzz_stock_name`,`kzz_stock_percent`,`kzz_stock_symbol`,`kzz_straight_price`,`last_close`,`lot_size`,
     `lot_volume`,`low`,`low52week`,`marketCapital`,`market_status`,`maturitydate`,`max_order_quantity`,`min_order_quantity`,
-    `name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,
+    `moving_avg_200_day`,`moving_avg_50_day`,`name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,
+    `pct_chg_from_200_day_moving_avg`,`pct_chg_from_50_day_moving_avg`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,
     `psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,
     `time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,
     `volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)' '''
@@ -53,14 +55,13 @@ for file_name in os.listdir(data_path):
     #     continue
     file = os.path.join(data_path, file_name)
     df = pd.read_json(file, encoding='utf-8', orient='index', dtype={'code':str})
-    if 'afterHoursTime' in df.columns:
-        del df['afterHoursTime']
     print(df.iloc[0].time)
 
     try:
         df['biz_date'] = df['time'].apply(lambda x : dump_datetime(load_datetime(x), '%Y-%m-%d'))
     except ValueError as error:
         print("================ error ", file_name, "===================")
+
     # print(df['biz_date'])
     # print(df['code'])
     # print(dump_datetime(load_datetime('Tue Oct 10 10:07:04 -0400 2017'), '%Y-%m-%d'))
@@ -68,12 +69,13 @@ for file_name in os.listdir(data_path):
     # print(df)
     # print(datetime.strptime('Tue Oct 10 10:07:04 -0400 2017', '%a %b %d %X %z %Y'))
 
+    # print(df.columns)
+
     csv_file = os.path.join(base_path, "tmp", "tmp.csv")
     df.to_csv(csv_file, sep='\t', header=False, index=False, encoding='utf-8')
     if is_windows:
         csv_file = csv_file.replace('\\', '\\\\')
     command = command_pre + csv_file + command_suffix
-    # print(command)
     os.system(command)
 
 

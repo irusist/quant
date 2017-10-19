@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 
 base_path = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(base_path, "data", "xueqiu", "hs", "20171018")
+data_path = os.path.join(base_path, "data", "xueqiu", "ccs", "20171018")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'
@@ -49,8 +49,8 @@ def dump_datetime(value, format):
     return value.strftime(format)
 
 for file_name in os.listdir(data_path):
-    # if not file_name == '1.json':
-    #     continue
+    if not file_name == '1.json':
+        continue
     file = os.path.join(data_path, file_name)
     df = pd.read_json(file, encoding='utf-8', orient='index', dtype={'code':str})
     if 'afterHoursTime' in df.columns:
@@ -64,7 +64,7 @@ for file_name in os.listdir(data_path):
     # print(df['biz_date'])
     # print(df['code'])
     # print(dump_datetime(load_datetime('Tue Oct 10 10:07:04 -0400 2017'), '%Y-%m-%d'))
-    # print(df.columns)
+    print(df.columns)
     # print(df)
     # print(datetime.strptime('Tue Oct 10 10:07:04 -0400 2017', '%a %b %d %X %z %Y'))
 
@@ -74,6 +74,6 @@ for file_name in os.listdir(data_path):
         csv_file = csv_file.replace('\\', '\\\\')
     command = command_pre + csv_file + command_suffix
     # print(command)
-    os.system(command)
+    # os.system(command)
 
 
