@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 
 base_path = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(base_path, "data", "xueqiu", "hs", "20171018")
+data_path = os.path.join(base_path, "data", "xueqiu", "hs", "20171019")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'

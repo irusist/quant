@@ -40,7 +40,7 @@ class ExcelHandler(ContentHandler):
 
 
 
-base_path = '/Users/zhulx/workspace/python/quant_data/index/深证指数/风格指数/价格/'
+base_path = '/tmp/quant/'
 
 # 指数系列 index_series： 1 : 中证指数, 2 : 上证指数, 3 : 深证指数, 4 : 国证指数, 5 : AMAC系列指数, 6 : 中信标普指数, 7 : 中华交易系列指数, 8 : 央视财经50, 9 : 新三板系列指数
 # 资产类别 assert_type:  1： 股票  2： 债券  3： 基金  4： 期货  5： 多资产  6： 区域， 7: 定制， 8： 跨境， 9： 其他
@@ -49,9 +49,9 @@ base_path = '/Users/zhulx/workspace/python/quant_data/index/深证指数/风格�
 i = 0
 for file_name in os.listdir(base_path):
     i += 1
-    index_series = 3
-    # assert_type = 1
-    index_type = 4
+    index_series = 1
+    assert_type = 1
+    index_type = 5
     index_code = file_name
     constituent_file = base_path + index_code + "/" + "成份及权重.xls"
     # csv_file = base_path + index_code + "/aaa.csv"
@@ -67,10 +67,10 @@ for file_name in os.listdir(base_path):
     conn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='123456', db='quant', charset='utf8')
     cursor = conn.cursor()
 
-    sql = "insert into index_basic_info (index_code, index_series, index_type) values (%s, %s, %s) "
+    sql = "insert into index_basic_info (index_code, index_series, assert_type, index_type) values (%s, %s, %s, %s) "
 
     # 入库
-    cursor.execute(sql, [index_code, index_series, index_type])
+    cursor.execute(sql, [index_code, index_series, assert_type, index_type])
     # 提交
     conn.commit()
 
