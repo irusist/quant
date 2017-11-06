@@ -35,6 +35,9 @@ code_not_equals_wind_csindex = ['000891', '930667', '930764', '930794', '930798'
                                 'H30384', 'H30418', 'H30422', 'H30457', 'H30464', 'H30484', 'H30533', 'H30547',
                                 'H30551', 'H30564']
 
+index_code_list = list(set(index_code_list).difference(set(code_not_equals_wind_csindex)))
+index_code_list.sort()
+
 print("found %s index from db" % str(len(index_code_list)))
 
 def convert_code(code, exchange):
