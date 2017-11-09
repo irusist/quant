@@ -6,7 +6,7 @@ import pymysql
 import requests
 
 cookies = {
-    'xq_a_token': '469ea9edce5537d5d8297aaffcd3474cc8d12273',
+    'xq_a_token': '6708d101a456578c98ea1779ae898687fe465bcb',
 }
 
 headers = {
@@ -103,6 +103,8 @@ code_list += ['603659.SH']
 code_list += ['300718.SZ', '603507.SH', '603856.SH', '300717.SZ', '300720.SZ']
 # 2017-11-07
 code_list += ['600903.SH']
+# 2017-11-09
+code_list += ['300719.SZ', '300716.SZ']
 
 for code in code_list:
     if code.endswith('SH'):
