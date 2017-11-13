@@ -35,6 +35,14 @@ code_not_equals_wind_csindex = ['000891', '930667', '930764', '930794', '930798'
                                 'H30384', 'H30418', 'H30422', 'H30457', 'H30464', 'H30484', 'H30533', 'H30547',
                                 'H30551', 'H30564']
 
+# joinquant有数据，由于没有跟踪标的，以下内容暂时不补齐，等有时间再补齐
+# 000902  中证流通
+# 000926  中证央企
+# 000938  中证名企
+# 000953  中证地企
+# 000955  中证国企
+code_not_equals_wind_csindex += ['000902', '000926', '000938', '000953', '000955']
+
 index_code_list = list(set(index_code_list).difference(set(code_not_equals_wind_csindex)))
 index_code_list.sort()
 

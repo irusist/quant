@@ -10,10 +10,18 @@ print(data_path)
 
 is_windows = platform.system() == 'Windows'
 
-command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
+command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e 'load data local infile "'''
+command_suffix = '''" into table joinquant_stock_hs(
+    `code`,
+    `biz_date`,
+    `pe`,
+    `pb`,
+    `ps`,
+    `pcf`)' '''
 
-command_suffix = '''\' into table joinquant_stock_hs(`code`, `biz_date`, `pe`, `pb`, `ps`, `pcf`)" '''
-
+if is_windows:
+    command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
+    command_suffix = '''\' into table joinquant_stock_hs(`code`, `biz_date`, `pe`, `pb`, `ps`, `pcf`)" '''
 
 for file_name in os.listdir(data_path):
     file = os.path.join(data_path, file_name)
