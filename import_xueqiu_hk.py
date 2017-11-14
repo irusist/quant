@@ -7,10 +7,12 @@ import pandas as pd
 from pytz import timezone, utc
 from pytz.tzinfo import StaticTzInfo
 from datetime import datetime, timedelta
+import migrate
 
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(base_path, "data", "xueqiu", "hk")
+backup_path = os.path.join(base_path, "backup", "xueqiu", "hk")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'
@@ -34,20 +36,20 @@ command_suffix = '''" into table xueqiu_hk(
 
 if is_windows:
     command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
-    command_suffix = '''\' into table xueqiu_hk(
-    `afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,
-    `benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`chg_from_200_day_moving_avg`,
-    `chg_from_50_day_moving_avg`,`circulation`,`close`,`code`,`convert_bond_ratio`,
-    `convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,
-    `fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,
-    `issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,
-    `kzz_stock_current`,`kzz_stock_name`,`kzz_stock_percent`,`kzz_stock_symbol`,`kzz_straight_price`,`last_close`,`lot_size`,
-    `lot_volume`,`low`,`low52week`,`marketCapital`,`market_status`,`maturitydate`,`max_order_quantity`,`min_order_quantity`,
-    `moving_avg_200_day`,`moving_avg_50_day`,`name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,
-    `pct_chg_from_200_day_moving_avg`,`pct_chg_from_50_day_moving_avg`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,
-    `psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,
-    `time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,
-    `volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)" '''
+    command_suffix = '''\' into table xueqiu_hk('''
+    command_suffix += '`afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,'
+    command_suffix += '`benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`chg_from_200_day_moving_avg`,'
+    command_suffix += '`chg_from_50_day_moving_avg`,`circulation`,`close`,`code`,`convert_bond_ratio`,'
+    command_suffix += '`convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,'
+    command_suffix += '`fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,'
+    command_suffix += '`issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,'
+    command_suffix += '`kzz_stock_current`,`kzz_stock_name`,`kzz_stock_percent`,`kzz_stock_symbol`,`kzz_straight_price`,`last_close`,`lot_size`,'
+    command_suffix += '`lot_volume`,`low`,`low52week`,`marketCapital`,`market_status`,`maturitydate`,`max_order_quantity`,`min_order_quantity`,'
+    command_suffix += '`moving_avg_200_day`,`moving_avg_50_day`,`name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,'
+    command_suffix += '`pct_chg_from_200_day_moving_avg`,`pct_chg_from_50_day_moving_avg`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,'
+    command_suffix += '`psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,'
+    command_suffix += '`time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,'
+    command_suffix += '`volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)" '
 
 
 class OffsetTime(StaticTzInfo):
@@ -58,14 +60,17 @@ class OffsetTime(StaticTzInfo):
         minutes = int(offset[0] + offset[3:])
         self._utcoffset = timedelta(hours=hours, minutes=minutes)
 
+
 def load_datetime(value):
     format = '%a %b %d %X %Y'
     offset = value[-10:-5:]
     value = value[:-10] + value[-4:]
     return OffsetTime(offset).localize(datetime.strptime(value, format))
 
+
 def dump_datetime(value, format):
     return value.strftime(format)
+
 
 def get_oneday_data(one_day_path):
     print("preparing to execute: %s" % one_day_path)
@@ -94,18 +99,24 @@ def get_oneday_data(one_day_path):
     return df
 
 
-for path in os.listdir(data_path):
-    if path == '.DS_Store':
-        continue
-    csv_file = os.path.join(base_path, "tmp", "tmp.csv")
-    child_path = os.path.join(data_path, path)
-    df = get_oneday_data(child_path)
-    df.to_csv(csv_file, sep='\t', header=False, index=False, encoding='utf-8')
-    if is_windows:
-        csv_file = csv_file.replace('\\', '\\\\')
-    command = command_pre + csv_file + command_suffix
-    # print(command)
-    os.system(command)
+def import_db():
+    for path in os.listdir(data_path):
+        if path == '.DS_Store':
+            continue
+        csv_file = os.path.join(base_path, "tmp", "tmp.csv")
+        child_path = os.path.join(data_path, path)
+        df = get_oneday_data(child_path)
+        df.to_csv(csv_file, sep='\t', header=False, index=False, encoding='utf-8')
+        if is_windows:
+            csv_file = csv_file.replace('\\', '\\\\')
+        command = command_pre + csv_file + command_suffix
+        # print(command)
+        os.system(command)
+        dest = os.path.join(backup_path, path)
+        migrate.move(child_path, dest)
+
+if __name__ == 'main':
+    import_db()
 
 
 

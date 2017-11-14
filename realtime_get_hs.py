@@ -117,3 +117,7 @@ for code in code_list:
         param.append('SZ' + code[:-3])
 j += 1
 get_data(','.join(param), str(j))
+
+import import_xueqiu_hs
+import_xueqiu_hs.import_db()
+

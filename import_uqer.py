@@ -2,9 +2,11 @@
 
 import os
 import platform
+import migrate
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(base_path, "data", "uqer")
+backup_path = os.path.join(base_path, "backup", "uqer")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'
@@ -28,4 +30,6 @@ for file_name in os.listdir(data_path):
         file = file.replace('\\', '\\\\')
     command = command_pre + file + command_suffix
     os.system(command)
+    dest = os.path.join(backup_path, file_name)
+    migrate.move(file, dest)
 

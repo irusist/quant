@@ -57,3 +57,6 @@ for code in code_list:
 
 j += 1
 get_data(','.join(param), str(j))
+
+import import_xueqiu_hk
+import_xueqiu_hk.import_db()
