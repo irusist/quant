@@ -30,43 +30,8 @@ sql = "select id, biz_date, code, name from stock_hs where biz_date = '2017-09-2
 df = pd.read_sql(sql, mysql_cn, index_col="id")
 # df = pd.read_csv("d:\\all_stock.csv")
 code_list = list(df['code'])
-# code_list.sort()
-print(code_list)
-
-
-def get_data(param_str, index):
-    result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, cookies=cookies, headers=headers)
-    # result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, proxies=proxys, cookies=cookies, headers=headers)
-    content = result.content.decode(encoding="UTF-8")
-    with open(os.path.join(base_path, index + '.json'), 'wb') as f:
-        f.write(content.encode('utf-8'))
-    print(content)
-
-
-print(len(code_list))
-
-count = 0
-j = 0
-param = []
-for code in code_list:
-    count += 1
-    if code.endswith('SH'):
-        param.append('SH' + code[:-3])
-    else:
-        param.append('SZ' + code[:-3])
-
-    if count == 50:
-        j += 1
-        get_data(','.join(param), str(j))
-        param = []
-        count = 0
-
-j += 1
-get_data(','.join(param), str(j))
-
 # 2017-10-10
-param = []
-code_list = ['300705.SZ', '300707.SZ']
+code_list += ['300705.SZ', '300707.SZ']
 # 2017-10-12
 code_list += ['603103.SH']
 # 2017-10-13
@@ -109,12 +74,37 @@ code_list += ['300719.SZ', '300716.SZ']
 code_list += ['603083.SH', '300722.SZ', '603916.SH', '300725.SZ']
 # 2017-11-13
 code_list += ['603076.SH', '603278.SH']
+# code_list.sort()
+print(code_list)
 
+
+def get_data(param_str, index):
+    result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, cookies=cookies, headers=headers)
+    # result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, proxies=proxys, cookies=cookies, headers=headers)
+    content = result.content.decode(encoding="UTF-8")
+    with open(os.path.join(base_path, index + '.json'), 'wb') as f:
+        f.write(content.encode('utf-8'))
+    print(content)
+
+
+print(len(code_list))
+
+count = 0
+j = 0
+param = []
 for code in code_list:
+    count += 1
     if code.endswith('SH'):
         param.append('SH' + code[:-3])
     else:
         param.append('SZ' + code[:-3])
+
+    if count == 50:
+        j += 1
+        get_data(','.join(param), str(j))
+        param = []
+        count = 0
+
 j += 1
 get_data(','.join(param), str(j))
 
