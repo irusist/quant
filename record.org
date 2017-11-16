@@ -290,5 +290,113 @@ H11081
 
 深圳，国证指数
 
-399006   创业板指  wind, joinquant, uqer都有
 
+399103   深证乐富基金指数    wind历史记录缺失   joinquant少很多， uqer没有数据，  无标的
+399231   农林牧渔指数        wind少一个， joinquant少2个， uqer少一个， wind和uqer一样， 无标的
+399232   采矿业指数        wind少一个， joinquant多几个， uqer少一个， wind和uqer一样， 无标的
+399235   建筑业指数，      wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399236   批发零售指数       wind不一致，joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399237   运输仓储指数       wind不一致， joinquant不一致， uqer不一致，wind和uqer一样， 无标的
+399238   餐饮指数         wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399239   IT指数           wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399240   金融指数           wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399241   房地产业指数         wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399242   商务服务指数          wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399243   科研服务指数         wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399244   公共环保指数          wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399248   文化传播指数          wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399303    国证2000指数          wind不一致，joinquant一致，uqer不一致，wind和uqer一样， 无标的
+399311    国证1000            wind不一致， joinquant不一致，uqer不一致， 无标的
+399316    巨潮小盘              wind不一致， joinquant一致， uqer一致， 无标的
+399317   国证A指               wind不一致， joinquant不一致，uqer无数据， 无标的
+399318   国证B股指数          wind不一致，joinquant没数据， uqer不一致， 无标的
+399352   深圳报业综指         wind不一致， uqer没确认，可能一致， joinquant不一致，无标的
+399354   新财富最佳分析师指数   wind不一致， uqer和joinquant无数据， 无标的
+399370   国证成长             wind不一致，quer，joinquant正确，无标的
+399376   小盘成长           wind不一致， uqer和joinquant正确，无标的
+399378   南方低碳           wind不一致， joinquant不一致， uqer不一致， wind和uqer一样， 无标的
+399383   1000工业         wind不一致，quer，joinquant正确，无标的
+399385   1000消费         wind不一致，quer，joinquant正确，无标的
+399401   中小盘              wind不一致，quer，joinquant正确，无标的
+399415   大数据100               wind, uqer, joinquant都不一致，  有标的！！！！！！！！！！
+399416   大数据300         wind不一致，uqer无，joinquant一致，有标的！！！！！！！！！！！
+399418    国证国家安全指数      wind不一致，uqer和joinquant一致，无标的
+399422   中关村A指，         wind不一致， joinquant，uqer无数据， 有标的！！！！！！！！！！！！
+399427   专利领先指数         wind，joinquant不一致，uqer无数据， 无标的
+399428   国证定向增发指数       wind, joinquant, uqer不一致，  无标的
+399635   创业板等权重指数      wind无历史记录，joinquant，uqer不正确，无标的
+399673   巨潮大盘价值         wind不一致， uqer和joinquant一致，都不正确， 无标的
+399678   深证次新股指         wind可能正确， uqer和joinquant不正确， 无标的
+399690   深证中小板专利领先指数    wind，joinquant数量一样，不正确，uqer无数据，无标的
+399692   创业300低波动率指数        wind不正确， joinquant，uqer无数据， 无标的
+399694   创业300高贝塔指数         wind不正确， joinquant，uqer无数据， 无标的
+399699   金融科技指数             wind不正确， joinquant，uqer无数据， 无标的
+CN5073   国证能源行业             wind不正确， joinquant，uqer无数据， 无标的
+CN5074   国证综合金融             wind不正确， joinquant，uqer无数据， 无标的
+CN5075   国证软件服务             wind不正确， joinquant，uqer无数据， 无标的
+CN5076   国证生物科技             wind不正确， joinquant，uqer无数据， 无标的
+CN5077   国证电影娱乐             wind不正确， joinquant，uqer无数据， 无标的
+CN5078   国证家用电器             wind不正确， joinquant，uqer无数据， 无标的
+CN5079   国证中药行业             wind不正确， joinquant，uqer无数据， 无标的
+CN5080   国证建筑材料             wind不正确， joinquant，uqer无数据， 无标的
+CN5081   国证白酒行业             wind不正确， joinquant，uqer无数据， 无标的
+CN5082   国证航天航空             wind不正确， joinquant，uqer无数据， 无标的
+CN5083   国证半导体               wind不正确， joinquant，uqer无数据， 无标的
+CN5084   国证电信服务             wind不正确， joinquant，uqer无数据， 无标的
+....
+CN5108   国证电信服务             wind不正确， joinquant，uqer无数据， 无标的
+CN5110   国证电信服务             wind不正确， joinquant，uqer无数据， 无标的
+CN5122   中小能源指数             wind不正确， joinquant，uqer无数据， 无标的
+...
+CN5131   中小公共事业指数          wind不正确， joinquant，uqer无数据， 无标的
+CN6001   安徽综合指数             wind不正确， joinquant，uqer无数据， 无标的
+...
+CN6034   饮料指数               wind不正确， joinquant，uqer无数据， 无标的
+CN6036   纺织指数               wind不正确， joinquant，uqer无数据， 无标的
+CN6037   服装指数               wind不正确， joinquant，uqer无数据， 无标的
+CN6039   木材指数               wind不正确， joinquant，uqer无数据， 无标的
+CN6041   造纸指数               wind不正确， joinquant，uqer无数据， 无标的
+...
+CN6060   其他指数               wind不正确， joinquant，uqer无数据， 无标的
+CNG10001  深港通综合指数         wind不确定， joinquant，uqer无数据，无标的
+CNG10005  深港通100指数          wind不确定， joinquant，uqer无数据，无标的
+399551    央视50创新            wind不正确， uqer不正确， joinquant正确，无标的
+399552    央视50成长            wind不正确，uqer，joinquant正确， 无标的
+399553    央视50回报            wind不正确  uqer不正确，joinquant正确， 无标的
+399555    央视50责任            wind不正确，uqer不正确，joinquant正确， 无标的
+
+
+
+
+
+
+
+399006   创业板指  wind, joinquant, uqer都有       有标的！！！！！！！！
+399100   深证新指数  wind正确, joinquant 少很多, uqer正确   无标的
+399101   中小板综合指数    wind正确，joinquant正确，uqer正确   有标的！！！！！！！
+399102    创业板综       wind正确   joinquant正确， uqer正确， 无标的
+399106   深证综指          wind正确，joinquant少很多，uqer正确， 无标的
+399107   深圳A指            wind正确， joinquant多几个， quer正确， 无标的
+399233   制造业指数      wind正确， joinquant少几个， quer正确， 无标的
+399234   水电指数       wind正确， joinquant少几个，uqer正确，无标的
+399606   创业板指数R      wind正确， uqer正确，joinquant不正确， 无标的
+
+
+
+
+债券：
+399298
+399299
+399301
+399302
+399307
+399413
+399481
+
+
+
+
+基金
+399306
+399379
+399380

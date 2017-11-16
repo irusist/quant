@@ -12,6 +12,12 @@ conn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='123456
 # 中证指数
 # 去掉债券， 多资产， 基金
 # sql = "select id, index_code from index_basic_info where index_series = 1 and assert_type not in (2, 3, 5) order by index_code"
+# TODO 新三板指数  899001  899002 没有跟踪标的， 暂时不做处理
+# TODO 中华交易系列指数， 8个， 没有跟踪标的， 暂不处理
+# TODO AMAC系列指数 没有跟踪标的， 暂不处理
+# sql = "select id, index_code from index_basic_info where index_series = 5 order by index_code "
+
+
 # 上证指数
 sql = "select id, index_code from index_basic_info where index_series in (1, 2)  and assert_type not in (2, 3, 5) order by index_code "
 df = pd.read_sql(sql, conn, index_col="id")
