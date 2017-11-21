@@ -6,7 +6,7 @@ import pymysql
 import requests
 
 cookies = {
-    'xq_a_token': '69b6947d07cbcc27ba7cad079e70289cc8c9b5e6',
+    'xq_a_token': 'a8d434ddd975f5752965fa782596bd0b5b008376',
 }
 
 headers = {

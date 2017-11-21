@@ -769,5 +769,22 @@ CREATE TABLE if not exists `xueqiu_hk` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='雪球香港股票表';
 
 
+drop table index_fund;
+CREATE TABLE if not exists `index_fund` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `index_code` varchar(64)  NOT NULL COMMENT '指数编码',
+  `index_name` varchar(256)  COMMENT '指数名称',
+  `fund_code` varchar(64)  NOT NULL COMMENT '基金编码',
+  `fund_name` varchar(256)  COMMENT '基金名称',
+  `fund_establish_date` varchar(15)  COMMENT '基金成立日',
+  `fund_company` VARCHAR(100) COMMENT '基金公司',
+  `fund_size`  DOUBLE COMMENT '基金规模，单位亿元',
+  PRIMARY KEY (`id`),
+  KEY `idx_index_fund_index_code` (`index_code`),
+  KEY `idx_index_fund_fund_code` (`fund_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='指数基金对应表';
+
+
+
 
 
