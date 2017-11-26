@@ -244,6 +244,34 @@ H30448
 930937  joinquant无， 无标的
 930949  joinquant无，无标的
 H11121  joinquant无， 无标的
+930723  wind正确，joinquant， uqer无， 有标的！！！！！
+
+以下是港股变更 2017-11-25更新
+930931 wind不正确，joinquant，uqer无， 无标的
+930990 wind不正确，joinquant，uqer无， 无标的
+930992 wind不正确，joinquant，uqer无， 无标的
+930998 wind不正确，joinquant，uqer无， 无标的
+930999 wind不正确，joinquant，uqer无， 无标的
+H11110 wind不正确，joinquant，uqer无， 无标的
+H11142 wind不正确，joinquant，uqer无， 无标的
+H11164 wind不正确，joinquant，uqer无， 无标的
+H11165 wind不正确，joinquant，uqer无， 无标的
+H11172 wind不正确，joinquant，uqer无， 无标的
+H11174 wind不正确，joinquant，uqer无， 无标的
+H30104 wind不正确，joinquant，uqer无， 无标的
+H30105 wind不正确，joinquant，uqer无， 无标的
+H30230 wind不正确，joinquant，uqer无， 无标的
+H30234 wind不正确，joinquant，uqer无， 无标的
+H30332 wind不正确，joinquant，uqer无， 无标的
+H30419 wind不正确，joinquant，uqer无， 无标的
+H30420 wind不正确，joinquant，uqer无， 无标的
+H30421 wind不正确，joinquant，uqer无， 无标的
+H30455 wind不正确，joinquant，uqer无， 无标的
+H30456 wind不正确，joinquant，uqer无， 无标的
+H30469 wind不正确，joinquant，uqer无， 无标的
+H30479 wind不正确，joinquant，uqer无， 无标的
+H30548 wind不正确，joinquant，uqer无， 无标的
+H30549 wind不正确，joinquant，uqer无， 无标的
 
 
 

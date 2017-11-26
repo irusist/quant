@@ -785,6 +785,50 @@ CREATE TABLE if not exists `index_fund` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='指数基金对应表';
 
 
+drop table index_valuation;
+CREATE TABLE if not exists `index_valuation` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `index_code` varchar(64)  NOT NULL COMMENT '指数编码',
+  `index_name` varchar(256)  COMMENT '指数名称',
+  `biz_date` varchar(15)  NOT NULL COMMENT '日期',
+  `pe` DOUBLE COMMENT 'pe_ttm',
+  `pb` DOUBLE COMMENT 'pb',
+  `ps` DOUBLE COMMENT 'ps',
+  `pcf` DOUBLE COMMENT 'pcf',
+  `pe_ratio` DOUBLE COMMENT 'pe百分比',
+  `pb_ratio` DOUBLE COMMENT 'pb百分比',
+  `ps_ratio` DOUBLE COMMENT 'ps百分比',
+  `pcf_ratio` DOUBLE COMMENT 'pcf百分比',
+  `sub_pe_size` int COMMENT '小于当前pe的大小',
+  `sub_pb_size` int COMMENT '小于当前pb的大小',
+  `all_size` int COMMENT '所有大小',
+  PRIMARY KEY (`id`),
+  KEY `idx_index_valuation_index_code` (`index_code`),
+  KEY `idx_index_valuation_biz_date` (`biz_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='指数估值表';
 
+
+
+drop table index_valuation_uqer;
+CREATE TABLE if not exists `index_valuation_uqer` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `index_code` varchar(64)  NOT NULL COMMENT '指数编码',
+  `index_name` varchar(256)  COMMENT '指数名称',
+  `biz_date` varchar(15)  NOT NULL COMMENT '日期',
+  `pe` DOUBLE COMMENT 'pe',
+  `pb` DOUBLE COMMENT 'pb',
+  `ps` DOUBLE COMMENT 'ps',
+  `pcf` DOUBLE COMMENT 'pcf',
+  `pe_ratio` DOUBLE COMMENT 'pe百分比',
+  `pb_ratio` DOUBLE COMMENT 'pb百分比',
+  `ps_ratio` DOUBLE COMMENT 'ps百分比',
+  `pcf_ratio` DOUBLE COMMENT 'pcf百分比',
+  `sub_pe_size` int COMMENT '小于当前pe的大小',
+  `sub_pb_size` int COMMENT '小于当前pb的大小',
+  `all_size` int COMMENT '所有大小',
+  PRIMARY KEY (`id`),
+  KEY `idx_index_valuation_uqer_index_code` (`index_code`),
+  KEY `idx_index_valuation_uqer_biz_date` (`biz_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='指数估值表--uqer';
 
 
