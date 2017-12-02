@@ -92,6 +92,8 @@ code_list += ['300727.SZ', '603685.SH']
 code_list += ['603809.SH']
 # 2017-11-30
 code_list += ['603711.SH']
+# 2017-12-01
+code_list += ['603848.SH', '002913.SZ', '300729.SZ']
 
 
 # code_list.sort()
