@@ -115,7 +115,7 @@ def import_db():
         dest = os.path.join(backup_path, path)
         migrate.move(child_path, dest)
 
-if __name__ == 'main':
+if __name__ == '__main__':
     import_db()
 
 
