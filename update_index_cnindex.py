@@ -13,7 +13,7 @@ conn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='123456
 # 去掉债券， 多资产， 基金
 # TODO 央视系列的没有跟踪标的， 暂时不做处理
 # sql = "select id, index_code from index_basic_info where index_series in (8) order by index_code "
-sql = "select id, index_code from index_basic_info where index_series in (3, 4) and assert_type not in (2, 3, 5) order by index_code "
+sql = "select id, index_code from index_basic_info where index_series in (3, 4) and (assert_type not in (2, 3, 5) or assert_type is null) order by index_code "
 df = pd.read_sql(sql, conn, index_col="id")
 index_code_list = list(df['index_code'])
 print(len(index_code_list))
@@ -35,22 +35,21 @@ print(len(index_code_list))
 code_not_equals_wind_csindex = ['399103', '399231', '399232', '399235', '399236', '399237', '399238', '399239',
                                 '399240', '399241', '399242', '399243', '399244', '399248', '399303', '399311',
                                 '399316', '399317', '399318', '399352', '399354', '399370', '399376', '399378',
-                                '399383', '399385', '399401', '399415', '399416', '399418', '399422', '399427',
-                                '399428', '399635', '399673', '399678', '399690', '399692', '399694', '399699',
-                                'CN5073', 'CN5074', 'CN5075', 'CN5076', 'CN5077', 'CN5078', 'CN5079', 'CN5080',
-                                'CN5081', 'CN5082', 'CN5083', 'CN5084', 'CN5085', 'CN5086', 'CN5087', 'CN5088',
-                                'CN5089', 'CN5090', 'CN5091', 'CN5092', 'CN5093', 'CN5094', 'CN5095', 'CN5096',
-                                'CN5097', 'CN5098', 'CN5099', 'CN5100', 'CN5101', 'CN5102', 'CN5103', 'CN5104',
-                                'CN5105', 'CN5106', 'CN5107', 'CN5108', 'CN5110', 'CN5122', 'CN5123', 'CN5124',
-                                'CN5125', 'CN5126', 'CN5127', 'CN5128', 'CN5129', 'CN5130', 'CN5131', 'CN6001',
-                                'CN6002', 'CN6003', 'CN6004', 'CN6005', 'CN6006', 'CN6007', 'CN6008', 'CN6009',
-                                'CN6010', 'CN6011', 'CN6012', 'CN6013', 'CN6014', 'CN6015', 'CN6016', 'CN6017',
-                                'CN6018', 'CN6019', 'CN6020', 'CN6021', 'CN6022', 'CN6023', 'CN6024', 'CN6025',
-                                'CN6026', 'CN6027', 'CN6028', 'CN6029', 'CN6030', 'CN6031', 'CN6032', 'CN6033',
-                                'CN6034', 'CN6036', 'CN6037', 'CN6039', 'CN6041', 'CN6042', 'CN6043', 'CN6044',
-                                'CN6045', 'CN6046', 'CN6047', 'CN6048', 'CN6049', 'CN6050', 'CN6051', 'CN6052',
-                                'CN6053', 'CN6054', 'CN6055', 'CN6056', 'CN6057', 'CN6058', 'CN6059', 'CN6060',
-                                'CNG10001', 'CNG10005']
+                                '399383', '399385', '399401', '399418', '399427', '399428', '399635', '399678',
+                                '399690', '399692', '399694', '399699', 'CN5073', 'CN5074', 'CN5075', 'CN5076',
+                                'CN5077', 'CN5078', 'CN5079', 'CN5080', 'CN5081', 'CN5082', 'CN5083', 'CN5084',
+                                'CN5085', 'CN5086', 'CN5087', 'CN5088', 'CN5089', 'CN5090', 'CN5091', 'CN5092',
+                                'CN5093', 'CN5094', 'CN5095', 'CN5096', 'CN5097', 'CN5098', 'CN5099', 'CN5100',
+                                'CN5101', 'CN5102', 'CN5103', 'CN5104', 'CN5105', 'CN5106', 'CN5107', 'CN5108',
+                                'CN5110', 'CN5122', 'CN5123', 'CN5124', 'CN5125', 'CN5126', 'CN5127', 'CN5128',
+                                'CN5129', 'CN5130', 'CN5131', 'CN6001', 'CN6002', 'CN6003', 'CN6004', 'CN6005',
+                                'CN6006', 'CN6007', 'CN6008', 'CN6009', 'CN6010', 'CN6011', 'CN6012', 'CN6013',
+                                'CN6014', 'CN6015', 'CN6016', 'CN6017', 'CN6018', 'CN6019', 'CN6020', 'CN6021',
+                                'CN6022', 'CN6023', 'CN6024', 'CN6025', 'CN6026', 'CN6027', 'CN6028', 'CN6029',
+                                'CN6030', 'CN6031', 'CN6032', 'CN6033', 'CN6034', 'CN6036', 'CN6037', 'CN6039',
+                                'CN6041', 'CN6042', 'CN6043', 'CN6044', 'CN6045', 'CN6046', 'CN6047', 'CN6048',
+                                'CN6049', 'CN6050', 'CN6051', 'CN6052', 'CN6053', 'CN6054', 'CN6055', 'CN6056',
+                                'CN6057', 'CN6058', 'CN6059', 'CN6060', 'CNG10001', 'CNG10005']
 
 index_code_list = list(set(index_code_list).difference(set(code_not_equals_wind_csindex)))
 index_code_list.sort()
