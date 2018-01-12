@@ -29,6 +29,17 @@ mysql_cn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='12
 sql = "select id, biz_date, code, name from stock_hk where biz_date = '2017-09-29' order by code"
 df = pd.read_sql(sql, mysql_cn, index_col="id")
 code_list = list(df['code'])
+
+# 2018-01-12
+code_list += ['06885.HK', '01707.HK', '08437.HK', '08480.HK', '08275.HK', '02337.HK', '08392.HK', '08065.HK']
+code_list += ['02225.HK', '06080.HK', '08470.HK', '08436.HK', '02232.HK', '00772.HK', '01720.HK', '08426.HK', '02122.HK']
+code_list += ['01337.HK', '08375.HK', '01706.HK', '08400.HK', '08376.HK', '02858.HK', '03358.HK', '01975.HK']
+code_list += ['08118.HK', '08373.HK', '08402.HK', '01710.HK', '01997.HK', '08495.HK', '08406.HK', '08429.HK']
+code_list += ['01697.HK', '02227.HK', '01475.HK', '01417.HK', '06090.HK', '08385.HK', '00839.HK', '01722.HK']
+code_list += ['02022.HK', '08377.HK', '01727.HK', '01789.HK', '08419.HK', '03878.HK', '02708.HK', '08422.HK']
+code_list += ['00784.HK', '08485.HK', '01730.HK', '08506.HK', '08501.HK', '03738.HK', '02025.HK', '08350.HK']
+code_list += ['08509.HK']
+
 print(code_list)
 print(len(code_list))
 
