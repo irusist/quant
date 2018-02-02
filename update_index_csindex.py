@@ -96,7 +96,7 @@ def append_suffix(code, exchange):
         return code + '.IB'
 
 def update(index_code):
-    print("index_code: " + index_code)
+    # print("index_code: " + index_code)
     # get stock code from db
     stock_code_list_db = get_stock_code_from_db(index_code)
 
