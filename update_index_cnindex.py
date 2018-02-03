@@ -51,6 +51,20 @@ code_not_equals_wind_csindex = ['399103', '399231', '399232', '399235', '399236'
                                 'CN6049', 'CN6050', 'CN6051', 'CN6052', 'CN6053', 'CN6054', 'CN6055', 'CN6056',
                                 'CN6057', 'CN6058', 'CN6059', 'CN6060', 'CNG10001', 'CNG10005']
 
+
+# TODO 399415 I100 有标的， wind无变化， 官网有变化！！！
+# TODO 399416 I300 有标的， wind无变化， 官网有变化！！！
+# TODO 399422 中关村A指  有标的， wind无变化， 官网有变化
+# TODO 399632 深100EW  有标的， wind没历史数据， 官网有变化
+# TODO 399633 深证300等权重指数  有标的， wind没历史数据， 官网有变化
+# TODO 399634 中小板等权重指数  有标的， wind没历史数据， 官网有变化
+# TODO 399656 深证100绩效加权指数  无标的， wind没有历史数据， 官网有变化
+# TODO 399657 深证300绩效加权指数  无标的， wind没有历史数据， 官网有变化
+# TODO 399658 中小板绩效加权指数  无标的， wind没有历史数据， 官网有变化
+# TODO 399659 深证成份等权  无标的， wind没有历史数据， 官网有变化
+# TODO 399660 中创100等权  无标的， wind没有历史数据， 官网有变化
+# TODO 399691 深证创业板专利领先指数  无标的， wind没有变化， 官网有变化
+
 index_code_list = list(set(index_code_list).difference(set(code_not_equals_wind_csindex)))
 index_code_list.sort()
 

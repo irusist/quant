@@ -55,6 +55,39 @@ code_not_equals_wind_csindex += ['000902', '000926', '000938', '000953', '000955
 # 950090 50AH优选 wind不正确
 # H50069  上证港股通指数，  wind不正确
 code_not_equals_wind_csindex += ['950090', 'H50069']
+
+# 000052 50基本面， 没有历史记录， 没有标的， 暂时去掉
+# 000053 180基本面， 没有历史记录， 没有标的， 暂时去掉
+# TODO 399983 地产等权， 没有历史记录， 有标的！！！！！  暂时去掉
+code_not_equals_wind_csindex += ['000052', '000053', '399983']
+
+
+# TODO 000852 中证1000， 有标的， 官网remove了好多，确认？
+# TODO 930796 全球中国互联网 没有标的， 官网有变动， wind没有
+# TODO 930931 港股通50 没有标的， 官网有变动， wind没变动，少 1997
+# TODO 930992 港股深红利地波  没有标的， wind， 官网不一致
+# TODO 930998 中证港股通粤港澳大湾区发展主题指数 没有标的， 官网，wind不一致， wind无变动
+# TODO 930999 中证沪港深粤港澳大湾区发展主题指数 没有标的， 官网，wind不一致， wind无变动
+# TODO H11110 中证锐联香港基本没50指数  没有标的， 官网，wind不一致， wind无变动， 官网增加 1997
+# TODO H11164 中证香港300港币  没有标的， 官网，wind不一致， wind无变动
+# TODO H11165 中证香港200港币  没有标的， 官网，wind不一致， wind无变动
+# TODO H11172 中证香港300价值指数（港币）  没有标的， 官网，wind不一致， wind无变动
+# TODO H11174 中证香港300相对价值指数（港币）  没有标的， 官网，wind不一致， wind无变动
+# TODO H30031 wind找不到！！  有标的
+# TODO H30086 wind找不到！！  有标的
+# TODO H30104 中证香港300非周期指数（港币）  没有标的， 官网，wind不一致， wind无变动
+# TODO H30105 中证香港300地产指数（港币）  没有标的， 官网，wind不一致， wind无变动
+# TODO H30234 中证香港300动态指数（港币）  没有标的， 官网，wind不一致， wind无变动
+# TODO H30332 中证香港50指数（HKD）  没有标的， 官网，wind不一致， wind无变动
+# TODO H30419 中证香港200动量指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30455 中证沪深港400指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30456 中证沪深港700指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30469 中证沪深港700原材料指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30479 中证沪深港1100原材料指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30548 中证沪深港1100非周期指数   没有标的， 官网，wind不一致， wind无变动
+# TODO H30549 中证沪深港1100地产指数   没有标的， 官网，wind不一致， wind无变动
+
+
 index_code_list = list(set(index_code_list).difference(set(code_not_equals_wind_csindex)))
 index_code_list.sort()
 
