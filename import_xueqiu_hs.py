@@ -84,13 +84,13 @@ def get_oneday_data(one_day_path):
             df_tmp['biz_date'] = df_tmp['time'].apply(lambda x : dump_datetime(load_datetime(x), '%Y-%m-%d'))
         except ValueError as error:
             print("================ error ", file_name, "===================")
+        df = df.append(df_tmp)
         # print(df['biz_date'])
         # print(df['code'])
         # print(dump_datetime(load_datetime('Tue Oct 10 10:07:04 -0400 2017'), '%Y-%m-%d'))
         # print(df.columns)
         # print(df)
         # print(datetime.strptime('Tue Oct 10 10:07:04 -0400 2017', '%a %b %d %X %z %Y'))
-        df = df.append(df_tmp)
     return df
 
 
