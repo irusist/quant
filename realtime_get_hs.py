@@ -158,6 +158,8 @@ code_list += ['603156.SH']
 code_list += ['002927.SZ']
 # 2018-02-26
 code_list += ['603712.SH']
+# 2018-02-27
+code_list += ['603680.SH']
 
 # code_list.sort()
 print(code_list)
