@@ -214,6 +214,8 @@ code_list += ['603666.SH']
 code_list += ['601990.SH']
 # 2018-06-20
 code_list += ['601066.SH']
+# 2018-06-22
+code_list += ['603587.SH']
 
 
 # code_list.sort()
