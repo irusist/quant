@@ -33,7 +33,7 @@ mysql_cn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='12
 #     (select SUBSTRING(stock_code,1,6) from index_constituent_current where index_code = '000016') order by code
 # '''
 
-sql = ''' SELECT biz_date from uqer_stock_hs  GROUP by biz_date order by biz_date '''
+sql = ''' SELECT biz_date from uqer_stock_hs  where biz_date >= '2008-07-27' GROUP by biz_date order by biz_date '''
 
 date_list = pd.read_sql(sql, mysql_cn, index_col="biz_date").index.tolist()
 
