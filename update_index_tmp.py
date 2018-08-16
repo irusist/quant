@@ -9,7 +9,7 @@ conn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='123456
 cursor = conn.cursor()
 
 
-index_code = '930714'
+index_code = 'H50068'
 df = pd.read_csv("~/Downloads/aaaa.csv", encoding='utf-8')
 df[u'状态'] = (df[u'状态'] == u'纳入').astype(int)
 
