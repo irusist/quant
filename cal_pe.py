@@ -33,7 +33,7 @@ mysql_cn = pymysql.connect(host='localhost', port=3306, user='quant', passwd='12
 #     (select SUBSTRING(stock_code,1,6) from index_constituent_current where index_code = '000016') order by code
 # '''
 
-sql = ''' SELECT biz_date from uqer_stock_hs  where biz_date >= '2008-07-27' GROUP by biz_date order by biz_date '''
+sql = ''' SELECT biz_date from stock_hs   GROUP by biz_date order by biz_date '''
 
 date_list = pd.read_sql(sql, mysql_cn, index_col="biz_date").index.tolist()
 
@@ -43,7 +43,7 @@ print(date_list)
 pe_list = []
 for d in date_list:
     print(d)
-    sql = ''' SELECT id, biz_date, code, pe, pb from uqer_stock_hs WHERE biz_date = '%s' order by code ''' % d
+    sql = ''' SELECT id, biz_date, code, pe, pb from stock_hs WHERE biz_date = '%s' order by code ''' % d
     pe_list_pd = pd.read_sql(sql, mysql_cn, index_col="id")
     pe = len(pe_list_pd)/sum([1/p if p > 0 else 0 for p in pe_list_pd.pe])
     pe_list.append(pe)
@@ -51,7 +51,7 @@ for d in date_list:
 print(pe_list)
 
 df = pd.DataFrame({'PE': pd.Series(pe_list, index=date_list)})
-df.to_csv("/Users/zhulx/pe.csv")
+df.to_csv("/Users/zhulx/pe2.csv")
 
 
 

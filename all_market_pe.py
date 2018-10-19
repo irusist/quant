@@ -1,6 +1,6 @@
 import pandas as pd
 
-df_pe = pd.DataFrame.from_csv("/Users/zhulx/pe.csv")
+df_pe = pd.DataFrame.from_csv("/Users/zhulx/pe2.csv")
 date_list = df_pe.index.tolist()
 
 pe_ratio_list = []
@@ -12,6 +12,6 @@ for d in date_list:
 
 df = pd.DataFrame({'pe' : pd.Series(pe_ratio_list, index=date_list)})
 
-df.to_csv('/Users/zhulx/pe_ratio.csv')
+df.to_csv('/Users/zhulx/pe_ratio2.csv')
 
 
