@@ -231,6 +231,8 @@ code_list += ['01801.HK']
 code_list += ['01712.HK']
 # 2018-11-06
 code_list += ['01755.HK']
+# 2018-11-07
+code_list += ['08259.HK']
 
 
 
