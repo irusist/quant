@@ -21,6 +21,7 @@ headers = {
 
 
 today = date.today().strftime('%Y%m%d')
+# today = '20190212'
 base_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "xueqiu", "hk", today)
 if not os.path.exists(base_path):
     os.mkdir(base_path)
