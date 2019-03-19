@@ -308,6 +308,8 @@ code_list += ['01158.HK']
 code_list += ['01917.HK']
 # 2019-03-15
 code_list += ['01907.HK', '01891.HK', '01563.HK', '03316.HK', '08096.HK']
+# 2019-03-18
+code_list += ['02682.HK', '03662.HK']
 
 
 print(code_list)
