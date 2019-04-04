@@ -10,7 +10,7 @@ backup_path = os.path.join(base_path, "backup", "uqer")
 print(data_path)
 
 is_windows = platform.system() == 'Windows'
-g
+
 command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e 'load data local infile "'''
 command_suffix = '''" into table uqer_stock_hs(
     `code`,
