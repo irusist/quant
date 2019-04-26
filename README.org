@@ -1,0 +1,39 @@
+# 文件说明
+
+## 获取实时数据
+
+ 1. realtime_get_css.py  从雪球获取中概股行情数据
+ 2. realtime_get_hk.py  从雪球获取香港股票行情数据
+ 3. realtime_get_hs.py 从雪球获取沪深股票行情数据
+
+
+## joinquant获取前一天行情数据
+
+joinquant.py
+
+## uqer获取前一天行情数据
+
+uqer.py
+
+## 将joinquant获取到的行情数据导入到数据库中
+
+import_joinquant.py
+
+## 将uqer获取到的行情数据导入到数据库中
+
+import_uqer.py
+
+
+## 从国证指数官网获取指数成分股 (http://www.cnindex.com.cn)
+
+update_index_cnindex.py
+
+## 从中证指数官网获取指数成分股 (http://www.csindex.com.cn)
+
+update_index_csindex.py
+
+
+
+
+
+
