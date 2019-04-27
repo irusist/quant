@@ -1,5 +1,9 @@
 * 文件说明
 
+** backup
+
+从 20171009 至今从雪球，joinquant，uqer获取到的数据的备份
+
 ** 获取实时数据
 
  1. realtime_get_css.py  从雪球获取中概股行情数据
