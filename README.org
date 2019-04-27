@@ -1,10 +1,11 @@
 * 文件说明
 
-** 获取实时股票数据
+** 获取实时数据
 
  1. realtime_get_css.py  从雪球获取中概股行情数据
  2. realtime_get_hk.py  从雪球获取香港股票行情数据
  3. realtime_get_hs.py 从雪球获取沪深股票行情数据
+ 4. realtime_get_kzz.py 从集思录获取可转债数据，计算出平均值
 
 
 ** joinquant获取前一天行情数据
