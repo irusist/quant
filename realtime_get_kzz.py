@@ -21,7 +21,8 @@ def get_data():
     count = 0
     lowerCount = 0
     for a in data['rows']:
-        if (a['cell']['list_dt'] is None) or (a['cell']['last_time'] is None):
+        # if (a['cell']['list_dt'] is None) or (a['cell']['last_time'] is None):
+        if a['cell']['last_time'] is None:
             continue
         # print(a['cell']['bond_nm'])
         price = float(a['cell']['price'])
