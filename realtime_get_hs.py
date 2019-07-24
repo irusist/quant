@@ -6,7 +6,7 @@ import pymysql
 import requests
 
 cookies = {
-    'xq_a_token': '63a237dfe496bfaeeae06b7f7c2e9dccb55d1571',
+    'xq_a_token': '8e5aeb2767487283b3c63763bac31b974deff1df',
 }
 
 headers = {
@@ -413,12 +413,15 @@ code_list += ['300785.SZ']
 code_list += ['603236.SH']
 # 2019-07-19
 code_list += ['603256.SH']
-# 2019-07-22
+
+# 2019-07-22  科创板开始， joinquant有pe数据， uqer没有pe数据
 code_list += ['688001.SH', '688002.SH', '688003.SH', '688006.SH', '688008.SH', '688012.SH',
               '688010.SH', '688333.SH', '688018.SH', '688019.SH', '688005.SH', '688007.SH',
               '688009.SH', '688011.SH', '688029.SH', '688088.SH', '688122.SH', '688016.SH',
               '688388.SH', '688066.SH', '688028.SH', '688033.SH', '688022.SH', '688020.SH',
               '688015.SH']
+# 2019-07-23
+code_list += ['300786.SZ']
 
 
 # code_list.sort()
