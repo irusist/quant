@@ -437,6 +437,8 @@ code_list += ['002966.SZ']
 code_list += ['603530.SH']
 # 2019-08-06
 code_list += ['603662.SH']
+# 2019-08-08  uqer有科创板数据了
+code_list += ['688188.SH', '688099.SH']
 
 
 # code_list.sort()

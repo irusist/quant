@@ -17,7 +17,7 @@ command_suffix = '''" into table uqer_stock_hs(
     `biz_date`,
     `pe`,
     `pb`,
-    `ps`,
+    `ps`,g
     `pcf`)' '''
 
 if is_windows:
