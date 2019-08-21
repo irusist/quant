@@ -449,6 +449,7 @@ code_list += ['300787.SZ']
 
 # code_list.sort()
 print(code_list)
+''
 
 
 def get_data(param_str, index):
