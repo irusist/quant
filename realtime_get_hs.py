@@ -460,7 +460,7 @@ code_list += ['688168.SH']
 # 2019-09-09
 code_list += ['603927.SH']
 # 2019-09-17  9月17日查询数据，股票代码不存在
-# code_list += ['002962.SZ']
+code_list += ['002962.SZ']
 
 
 # code_list.sort()
