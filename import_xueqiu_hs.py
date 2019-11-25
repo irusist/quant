@@ -21,7 +21,7 @@ command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e 'l
 
 command_suffix = '''" into table xueqiu_hs(
     `afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,
-    `benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,
+    `benefit_after_tax`,`benefit_before_tax`,`beta`,`biz_date`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,
     `convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,
     `fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,
     `issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,
@@ -30,13 +30,13 @@ command_suffix = '''" into table xueqiu_hs(
     `name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,
     `psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,
     `time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,
-    `volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)' '''
+    `volumeAverage`,`volume_ratio`,`warrant`,`yield`)' '''
 
 if is_windows:
     command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
     command_suffix = '\' into table xueqiu_hs('
     command_suffix += '`afterHours`,`afterHoursChg`,`afterHoursPct`,`after_hour_vol`,`amount`,`amplitude`,'
-    command_suffix += '`benefit_after_tax`,`benefit_before_tax`,`beta`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,'
+    command_suffix += '`benefit_after_tax`,`benefit_before_tax`,`beta`,`biz_date`,`bond_type`,`change`,`circulation`,`close`,`code`,`convert_bond_ratio`,'
     command_suffix += '`convert_rate`,`convertrate`,`currency_unit`,`current`,`disnext_pay_date`,`dividend`,`due_date`,`due_time`,`eps`,`exchange`,'
     command_suffix += '`fall_stop`,`flag`,`float_market_capital`,`float_shares`,`has_warrant`,`hasexist`,`high`,`high52week`,`instOwn`,`interestrtmemo`,'
     command_suffix += '`issue_type`,`kzz_convert_price`,`kzz_convert_time`,`kzz_covert_value`,`kzz_cpr`,`kzz_putback_price`,`kzz_redempt_price`,'
@@ -45,7 +45,7 @@ if is_windows:
     command_suffix += '`name`,`net_assets`,`open`,`outstandingamt`,`pankou_ratio`,`par_value`,`pb`,`pe_lyr`,`pe_ttm`,`percent5m`,`percentage`,'
     command_suffix += '`psr`,`publisher`,`rate`,`redeem_type`,`release_date`,`remain_year`,`rest_day`,`rise_stop`,`sale_rrg`,`symbol`,`tick_size`,'
     command_suffix += '`time`,`totalShares`,`totalissuescale`,`turnover_rate`,`type`,`updateAt`,`value_date`,`variable_tick_size`,`volume`,'
-    command_suffix += '`volumeAverage`,`volume_ratio`,`warrant`,`yield`,`biz_date`)" '
+    command_suffix += '`volumeAverage`,`volume_ratio`,`warrant`,`yield`)" '
 
 
 class OffsetTime(StaticTzInfo):
