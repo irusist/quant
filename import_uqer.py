@@ -14,7 +14,7 @@ is_windows = platform.system() == 'Windows'
 command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e 'load data local infile "'''
 command_suffix = '''" into table uqer_stock_hs(
     `code`,
-    `biz_date`,
+    `biz_date`,g
     `pe`,
     `pb`,
     `ps`,
