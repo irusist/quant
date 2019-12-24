@@ -1,7 +1,7 @@
 import requests
 
 cookies = {
-    'xq_a_token': '71434a3777016e7bc14799c5df3ea982914f2d93',
+    'xq_a_token': 'b34e26c2718bfc47d479de7c2cd9777a57aecb4c',
 }
 
 headers = {
