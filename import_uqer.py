@@ -18,7 +18,7 @@ command_suffix = '''" into table uqer_stock_hs(
     `pe`,
     `pb`,
     `ps`,
-    `pcf`)' '''g
+    `pcf`)' '''
 
 if is_windows:
     command_pre = '''mysql -uquant -p123456 -h127.0.0.1 quant --local-infile=1 -e "load data local infile \''''
