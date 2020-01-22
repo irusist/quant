@@ -571,11 +571,12 @@ code_list += ['601816.SH']
 code_list += ['688278.SH']
 # 2020-01-20
 code_list += ['688158.SH']
+# 2020-01-21
+code_list += ['688100.SH']
 
 
 # code_list.sort()
 print(code_list)
-''
 
 
 def get_data(param_str, index):
