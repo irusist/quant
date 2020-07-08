@@ -721,6 +721,8 @@ code_list += ['300846.SZ', '688528.SH']
 code_list += ['300843.SZ']
 # 2020-07-03
 code_list += ['300845.SZ', '688600.SH']
+# 2020-07-07
+code_list += ['688277.SH']
 
 
 # code_list.sort()
