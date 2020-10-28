@@ -594,6 +594,8 @@ code_list += ['01952.HK']
 # code_list += ['02107.HK']
 # 2020-10-23
 # code_list += ['02169.HK']
+# 2020-10-27
+# code_list += ['02096.HK']
 
 
 print(code_list)
