@@ -7,7 +7,7 @@ import pymysql
 import requests
 
 cookies = {
-    'xq_a_token': '1132205e8c57eb587b26526804cff9f3b6bf6799',
+    'xq_a_token': 'ad26f3f7a7733dcd164fe15801383e62b6033003',
 }
 
 headers = {
@@ -927,6 +927,8 @@ code_list += ['003026.SZ', '688699.SH', '003027.SZ']
 code_list += ['300917.SZ', '688668.SH']
 # 2020-12-22
 code_list += ['300918.SZ', '605186.SH', '300921.SZ', '605500.SH']
+# 2020-12-23
+code_list += ['300919.SZ', '688678.SH']
 
 
 
