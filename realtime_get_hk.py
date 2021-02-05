@@ -656,6 +656,8 @@ code_list += ['09608.HK']
 code_list += ['02159.HK']
 # 2021-01-26
 code_list += ['06668.HK']
+# 2021-02-04
+code_list += ['02160.HK']
 
 
 print(code_list)
@@ -663,6 +665,8 @@ print(len(code_list))
 
 
 def get_data(param_str, index):
+    # if (int(index) < 25):
+    #     return
     result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, cookies=cookies, headers=headers)
     # result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, cookies=cookies, headers=headers, proxies=proxys)
     content = result.content.decode(encoding="UTF-8")

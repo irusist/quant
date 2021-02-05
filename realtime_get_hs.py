@@ -977,6 +977,8 @@ code_list += ['605055.SH', '605368.SH']
 code_list += ['688607.SH', '688628.SH']
 # 2021-02-03
 code_list += ['300940.SZ']
+# 2021-02-04
+code_list += ['003037.SZ']
 
 
 
@@ -985,6 +987,8 @@ print(code_list)
 
 
 def get_data(param_str, index):
+    # if (int(index) < 40):
+    #     return
     result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, cookies=cookies, headers=headers)
     # result = requests.get("https://xueqiu.com/v4/stock/quote.json?code=" + param_str, proxies=proxys, cookies=cookies, headers=headers)
     content = result.content.decode(encoding="UTF-8")
