@@ -16,7 +16,7 @@ command_suffix = '''" into table uqer_stock_hs(
     `code`,
     `biz_date`,
     `pe`,
-    `pb`,
+    `pb`,g
     `ps`,
     `pcf`)' '''
 
